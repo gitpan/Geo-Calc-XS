@@ -14,7 +14,7 @@ our @ISA = qw( Exporter DynaLoader );
 our %EXPORT_TAGS = ( 'all' => [ 'new', 'distance_to' ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = ();
-our $VERSION = '0.23';
+our $VERSION = '0.24';
 
 XSLoader::load 'Geo::Calc::XS', $VERSION;
 
@@ -24,13 +24,13 @@ XSLoader::load 'Geo::Calc::XS', $VERSION;
 
 =head1 NAME
 
-Geo::Calc - simple geo calculator for points and distances
+Geo::Calc::XS - simple geo calculator for points and distances
 
 =head1 SYNOPSIS
 
- use Geo::Calc;
+ use Geo::Calc::XS;
 
- my $gc            = Geo::Calc->new( lat => 40.417875, lon => -3.710205 );
+ my $gc            = Geo::Calc::XS->new( lat => 40.417875, lon => -3.710205 );
  my $distance      = $gc->distance_to( { lat => 40.422371, lon => -3.704298 }, -6 );
  my $brng          = $gc->bearing_to( { lat => 40.422371, lon => -3.704298 }, -6 );
  my $f_brng        = $gc->final_bearing_to( { lat => 40.422371, lon => -3.704298 }, -6 );
@@ -44,7 +44,7 @@ Geo::Calc - simple geo calculator for points and distances
 
 =head1 DESCRIPTION
 
-C<Geo::Calc> implements a variety of calculations for latitude/longitude points
+C<Geo::Calc::XS> implements a variety of calculations for latitude/longitude points
 
 All these formulare are for calculations on the basis of a spherical earth
 (ignoring ellipsoidal effects) which is accurate enough* for most purposes.
@@ -55,19 +55,19 @@ gives errors typically up to 0.3% ].
 Benchmarnking this module and Geo::Calc I found out that this module is sometime
 more than 8000 times faster.
 
-=head1 Geo::Calc->new()
+=head1 Geo::Calc::XS->new()
 
- $gc = Geo::Calc->new( lat => 40.417875, lon => -3.710205 ); # Somewhere in Madrid
- $gc = Geo::Calc->new( lat => 51.503269, lon => 0, units => 'k-m' ); # The O2 Arena in London
+ $gc = Geo::Calc::XS->new( lat => 40.417875, lon => -3.710205 ); # Somewhere in Madrid
+ $gc = Geo::Calc::XS->new( lat => 51.503269, lon => 0, units => 'k-m' ); # The O2 Arena in London
 
-Creates a new Geo::Calc object from a latitude and longitude. The default
+Creates a new Geo::Calc::XS object from a latitude and longitude. The default
 deciaml precision is -6 for all functions => meaning by default it always
 returns the results with 6 deciamls.
 
 The default unit distance is 'm' (meter), but you cand define another unit using 'units'.
 Accepted values are: 'm' (meters), 'k-m' (kilometers), 'yd' (yards), 'ft' (feet) and 'mi' (miles)
 
-Returns ref to a Geo::Calc object.
+Returns ref to a Geo::Calc::XS object.
 
 =head2 Parameters
 
