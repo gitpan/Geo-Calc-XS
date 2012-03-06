@@ -1,0 +1,23 @@
+TYPEMAP
+
+GCX *		T_GCX
+INGC *		T_INGC
+
+INPUT
+
+T_GCX
+        if( !( SvROK( $arg ) && SvOBJECT( SvRV( $arg ) ) && ( SvSTASH( SvRV( $arg ) ) == GEOCALC_STASH || sv_derived_from( $arg, \"Geo::Calc::XS\" ) ) ) )
+          croak (\"object is not of type Geo::Calc::XS\");
+        $var = (GCX *)SvPVX( SvRV( $arg ) );
+T_INGC
+        if( SvROK( $arg ) && SvOBJECT( SvRV( $arg ) ) && ( SvSTASH( SvRV( $arg ) ) == GEOCALC_STASH || sv_derived_from( $arg, \"Geo::Calc::XS\" ) ) ) {
+            GCX * self2 = (GCX *)SvPVX( SvRV( $arg ) );
+            $var = newHV();
+            hv_store( $var, \"lat\", 3, newSVnv( self2->latitude ), 0 );
+            hv_store( $var, \"lon\", 3, newSVnv( self2->longitude ), 0 );
+        } else if( SvROK( $arg ) && ( SvTYPE( SvRV( $arg ) ) == SVt_PVHV ) ) {
+            $var = (HV*)SvRV( $arg );
+        } else {
+            warn( \"${Package}::$func_name() -- $var is not an Geo::Calc::XS or HV reference\" );
+            XSRETURN_UNDEF;
+        }
