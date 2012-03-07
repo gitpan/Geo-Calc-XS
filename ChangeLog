@@ -6,3 +6,7 @@ Revision history for Geo::Calc::XS
 0.24  Tue Mar  6 03:41:48 EST 2012
     - fixed documentation
     - split benchmarks into separate tests
+
+0.25  Tue Mar  6 10:50:21 EST 2012
+    - added Test::Deep to dependencies
+

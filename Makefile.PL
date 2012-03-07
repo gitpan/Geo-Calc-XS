@@ -16,6 +16,7 @@ WriteMakefile(
     PREREQ_PM    => {
             'File::Spec'  => 0,
             'Test::More'  => 0,
+            'Test::Deep'  => 0,
         },
     LIBS         => [''], # e.g., '-lm'
     DEFINE       => '', # e.g., '-DBYPASS'
