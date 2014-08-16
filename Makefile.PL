@@ -17,9 +17,22 @@ WriteMakefile(
             'File::Spec'  => 0,
             'Test::More'  => 0,
             'Test::Deep'  => 0,
+            'Test::Warn'  => 0,
+            'Math::Units' => 0,
+            'Test::NoWarnings' => 0,
         },
     LIBS         => [''], # e.g., '-lm'
     DEFINE       => '', # e.g., '-DBYPASS'
     INC          => '', # e.g., '-I/usr/include/other'
     SIGN         => 1,
+    META_MERGE => {
+        'meta-spec' => { version => 2 },
+        resources => {
+            repository => {
+                type => 'git',
+                url => 'https://github.com/Flimm/perl5-geo-calc-xs.git',
+                web => 'https://github.com/Flimm/perl5-geo-calc-xs',
+            },
+        },
+    },
 );
