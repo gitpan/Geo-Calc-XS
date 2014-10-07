@@ -4,7 +4,7 @@
       "unknown"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.141170",
+   "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "unknown"
    ],
@@ -19,28 +19,6 @@
          "inc"
       ]
    },
-   "prereqs" : {
-      "build" : {
-         "requires" : {
-            "ExtUtils::MakeMaker" : "0"
-         }
-      },
-      "configure" : {
-         "requires" : {
-            "ExtUtils::MakeMaker" : "0"
-         }
-      },
-      "runtime" : {
-         "requires" : {
-            "File::Spec" : "0",
-            "Math::Units" : "0",
-            "Test::Deep" : "0",
-            "Test::More" : "0",
-            "Test::NoWarnings" : "0",
-            "Test::Warn" : "0"
-         }
-      }
-   },
    "release_status" : "stable",
    "resources" : {
       "repository" : {
@@ -49,5 +27,5 @@
          "web" : "https://github.com/Flimm/perl5-geo-calc-xs"
       }
    },
-   "version" : "0.26"
+   "version" : "0.27"
 }

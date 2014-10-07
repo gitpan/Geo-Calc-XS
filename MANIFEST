@@ -1,5 +1,17 @@
-MANIFEST
+ChangeLog
+lib/Geo/Calc/XS.pm
 Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+README
+t/01_use.t
+t/02_check_module.t
+t/03_properties.t
+t/04_units.t
+t/90_benchmark.t
+t/99_pod.t
+typemap
+XS.xs
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)
 SIGNATURE                                Public-key signature (added by MakeMaker)

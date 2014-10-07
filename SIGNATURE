@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.68.
+signed via the Module::Signature module, version 0.73.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,18 +14,30 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 539e9c146e24cca5e3627e94cd58d2dd3103e10a MANIFEST
-SHA1 379d88ace9a8ab6379031c5f9c42f2f155f6ea92 META.json
-SHA1 68c5eb1247cabf82f0fb084fdef9f5dc4a89551f META.yml
-SHA1 096dbfba00eb77dc1d0ae538675b49d986f00a23 Makefile.PL
+SHA1 07b12ae30cead914ffda438f1f8de3dcaea4a138 ChangeLog
+SHA1 14bd62ee444ace4898d6b8c7e045c833cf5dce51 MANIFEST
+SHA1 e505664cd5a05467bfa76c345d02099c76dbec55 MANIFEST.SKIP
+SHA1 07c72717826f98c855220beb17ca25f2401eb55e META.json
+SHA1 021c9514369a96dcce8eb41b9324bc1b1e79ad65 META.yml
+SHA1 cc7e8ff4394c0ea73c2a905523b40a7b81ce08c3 Makefile.PL
+SHA1 75da41b38fffcd61be9c9d4d0d0d9ff9c5b401a9 README
+SHA1 555c5e37c8e917150e8e68bfdd8f8a582d1ac9a2 XS.xs
+SHA1 e06ee9584ea4e9d426e275c1e869704321fb0f79 lib/Geo/Calc/XS.pm
+SHA1 56a2661a437c84c604f5648ae036edfd0e8829b9 t/01_use.t
+SHA1 00bc31512de65283c8a3c039a7fbf3f80172bcc8 t/02_check_module.t
+SHA1 f590a1274aa265d683e6ba620a6e07d9c7b4612c t/03_properties.t
+SHA1 5ae0edff6aa55beed8b86d7ca376c450c10925ea t/04_units.t
+SHA1 16ec71cde5eb575575adc75bb0c9f1b4c22cda0d t/90_benchmark.t
+SHA1 b42006549caf2a1f3d7d1e759dece02736346f81 t/99_pod.t
+SHA1 d1931d1069d914b47b9c03b7898ae7cf5d0253df typemap
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.12 (GNU/Linux)
+Version: GnuPG v1
 
-iQEcBAEBAgAGBQJT759yAAoJEOJwqcz6i68zYeQH/1TXzXGk2M8FdZsyt/OwUOFB
-LESnrpy8iC/mAw7d5JnaczPrYxL1sATATchhf3rTlJXHGAyqEma/X98P1R7yjBL2
-iQ2O8OC3T0uLf3zyIkZQCB4JdnAJCplXhOo45ZZorQLnOm8vI6JsqWtdlp3YYcMM
-XqjJ3a3mMZUbxAENawMkI2JI4BK3Eliee1maIJOWeSuwPVFt8sgltNSfr+4WUfkY
-+Vk7/pV4ED3owYqjahnaXCTNUlqAf/7BZiQ2mPicOoBQSKsAREMyr8/iCx+kV88m
-WdB38qni+usLlMhWb+w+2/LTlLG/WNERgLeuj9VtaptImqQByYKbE+HdSXQivuM=
-=oEpG
+iQEcBAEBAgAGBQJUNCBxAAoJEOJwqcz6i68zDq8H/2LWAHpIqsmyppUs49mC3CaT
+wiaab0BdEvkWmtBmu5flEk+aBQn8Y39eXOfmV6FMph4CaGwd+QpouBFbqq7Kjdyv
+uDQQG2gS8THYT8vdtWx5j5P+wh0NxbsGsW4xDmX3mRl3CcQcoT9GeV5Rz25RKOMO
+no/7ybBxOjRv1dhp14+CGsR0yr0ucPTv+fYZYJHCnvnhI0I+Q30Xj9L2JnWFEMda
+ors27HXpTKLoLjTt3Tdk5t9CosRo77H6iq0f6TzKo55+SR5aYlSmG2Ihop8eANMx
+ssEAC3wa5ec96Ppwjd6sXsi7WvGFwfmzskNy7qtueG5LUIgTTtmv1WEymOIrwxg=
+=oIAs
 -----END PGP SIGNATURE-----

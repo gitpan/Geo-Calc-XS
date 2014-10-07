@@ -15,16 +15,21 @@ WriteMakefile(
     VERSION_FROM => File::Spec->catfile( 'lib', 'Geo', 'Calc', 'XS.pm' ), # finds $VERSION
     PREREQ_PM    => {
             'File::Spec'  => 0,
-            'Test::More'  => 0,
-            'Test::Deep'  => 0,
-            'Test::Warn'  => 0,
-            'Math::Units' => 0,
-            'Test::NoWarnings' => 0,
         },
+    TEST_REQUIRES => {
+        'Test::More'  => 0,
+        'Test::Deep'  => 0,
+        'Test::Warn'  => 0,
+        'Test::NoWarnings' => 0,
+        'Math::Units' => 0,
+    },
     LIBS         => [''], # e.g., '-lm'
     DEFINE       => '', # e.g., '-DBYPASS'
     INC          => '', # e.g., '-I/usr/include/other'
     SIGN         => 1,
+    XS => {
+        'XS.xs' => 'XS.c',
+    },
     META_MERGE => {
         'meta-spec' => { version => 2 },
         resources => {

@@ -2,28 +2,18 @@
 abstract: unknown
 author:
   - unknown
-build_requires:
-  ExtUtils::MakeMaker: '0'
-configure_requires:
-  ExtUtils::MakeMaker: '0'
+build_requires: {}
 dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.141170'
+generated_by: 'ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.120921'
 license: unknown
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: '1.4'
+  version: 1.4
 name: Geo-Calc-XS
 no_index:
   directory:
     - t
     - inc
-requires:
-  File::Spec: '0'
-  Math::Units: '0'
-  Test::Deep: '0'
-  Test::More: '0'
-  Test::NoWarnings: '0'
-  Test::Warn: '0'
 resources:
   repository: https://github.com/Flimm/perl5-geo-calc-xs.git
-version: '0.26'
+version: 0.27
