@@ -22,6 +22,8 @@ WriteMakefile(
         'Test::Warn'  => 0,
         'Test::NoWarnings' => 0,
         'Math::Units' => 0,
+        'Test::Exception' => 0,
+        'Test::LeakTrace' => 0,
     },
     LIBS         => [''], # e.g., '-lm'
     DEFINE       => '', # e.g., '-DBYPASS'

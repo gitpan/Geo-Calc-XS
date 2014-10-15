@@ -3,3 +3,7 @@
 ^.*\.un~$
 ^Geo-Calc-XS.*\.tar\.gz$
 ^[.]git
+\.swp$
+^Makefile$
+^MYMETA
+\.bak$
