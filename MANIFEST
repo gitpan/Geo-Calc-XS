@@ -10,6 +10,7 @@ t/03_properties.t
 t/04_units.t
 t/05_fuzzy_input.t
 t/06_memory_leak.t
+t/07_debugger.t
 t/90_benchmark.t
 t/99_pod.t
 typemap

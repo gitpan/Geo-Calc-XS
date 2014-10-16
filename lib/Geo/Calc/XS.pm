@@ -14,7 +14,7 @@ our @ISA = qw( Exporter DynaLoader );
 our %EXPORT_TAGS = ( 'all' => [ 'new', 'distance_to' ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = ();
-our $VERSION = '0.28';
+our $VERSION = '0.29';
 
 XSLoader::load 'Geo::Calc::XS', $VERSION;
 
@@ -59,20 +59,14 @@ gives errors typically up to 0.3% ].
 Benchmarking this module and L<Geo::Calc> I found out that this module is sometimes
 more than 8000 times faster.
 
+This module is designed to be thread-safe, although, of course,
+interpreter-based threads are officially discouraged (see
+L<http://perldoc.perl.org/threads.html>).
+
 =head1 CAVEATS
-
-=over 4
-
-=item
-
-This module is not thread-safe.
-
-=item
 
 This is not a drop-in replacement for L<Geo::Calc>, see the COMPATIBILITY
 section further down.
-
-=back
 
 =head1 Geo::Calc::XS->new()
 
@@ -316,7 +310,8 @@ different results after a few decimal places.
 
 =item
 
-L<Geo::Calc> may be thread-safe, whereas this module definitely is not.
+It's undocumented whether L<Geo::Calc> is thread-safe, whereas this module does
+intend to be thread-safe.
 
 =back
 

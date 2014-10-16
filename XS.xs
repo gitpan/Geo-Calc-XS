@@ -10,8 +10,6 @@
 #include <float.h>
 #include <math.h>
 
-#define GEOCALC_STASH geocalc_stash
-
 #if __GNUC__ >= 3
 # define expect(expr,value)         __builtin_expect ((expr), (value))
 # define INLINE                     static inline
@@ -25,8 +23,6 @@
 #define RAD2DEG(DEG) ((DEG)*(180.0/PI))
 
 #define INT_NOT_R int
-
-static HV *geocalc_stash;
 
 enum DISTANCE_UNIT_ENUM {
     UNIT_METERS,
@@ -227,16 +223,8 @@ _destination_point( GCX *self, double bearing, double s, int precision, DESTINAT
 
 
 MODULE = Geo::Calc::XS         PACKAGE = Geo::Calc::XS
-BOOT:
-{
-    geocalc_stash = gv_stashpv( "Geo::Calc::XS", 1 );
-}
 
 PROTOTYPES: DISABLE
-
-void CLONE (...)
-    CODE:
-        geocalc_stash = 0;
 
 void new ( char *klass, ... )
     PREINIT:
@@ -263,10 +251,7 @@ void new ( char *klass, ... )
 
         SvREFCNT_dec((SV *) options);
 
-        XPUSHs( sv_2mortal( sv_bless(
-           newRV_noinc( pv ),
-           strEQ( klass, "Geo::Calc::XS" ) ? GEOCALC_STASH : gv_stashpv( klass, 1 )
-        ) ) );
+        XPUSHs( sv_2mortal( sv_bless( newRV_noinc( pv ), gv_stashpv( klass, 1 )) ) );
     }
 
 long double
@@ -366,18 +351,18 @@ boundry_box( GCX *self, ... )
         }
         width = SvNV(ST(1));
 
-        if (ST(2) && SvOK(ST(2)) && SvROK(ST(2))) {
+        if (items >= 3 && ST(2) && SvOK(ST(2)) && SvROK(ST(2))) {
             croak("height is not expected to be a reference");
-        } else if (ST(2) && SvOK(ST(2))) {
+        } else if (items >= 3 && ST(2) && SvOK(ST(2))) {
             height = SvNV(ST(2));
         } else {
             width = width * 2;
             height = width;
         }
 
-        if (ST(3) && SvOK(ST(3)) && SvROK(ST(3))) {
+        if (items >= 4 && ST(3) && SvOK(ST(3)) && SvROK(ST(3))) {
             croak("precision is not expected to be a reference");
-        } else if (ST(3) && SvOK(ST(3))) {
+        } else if (items >= 4 && ST(3) && SvOK(ST(3))) {
             precision = SvNV(ST(3));
         } else {
             precision = -6;

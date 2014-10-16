@@ -1,5 +1,11 @@
 Revision history for Geo::Calc::XS
 
+0.29 Thu Oct  16 00:00:00 EST 2014
+    - Thread-safety implemented
+    - Fix bug #97052: Geo::Calc::XS midpoint_to returns different results in
+    debugger
+    - Add MIN_PERL_VERSION and LICENSE to Makefile.PL
+
 0.28 Wed Oct  15 00:00:00 EST 2014
     - Change in undocumented behaviour: die on invalid parameters
     - Die cleanly instead of segfaulting on missing parameters

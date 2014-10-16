@@ -9,7 +9,7 @@ INT_NOT_R       T_INT_NOT_R
 INPUT
 
 T_GCX
-        if( !( SvROK( $arg ) && SvOBJECT( SvRV( $arg ) ) && ( SvSTASH( SvRV( $arg ) ) == GEOCALC_STASH || sv_derived_from( $arg, \"Geo::Calc::XS\" ) ) ) )
+        if( !( SvROK( $arg ) && SvOBJECT( SvRV( $arg ) ) && ( SvSTASH( SvRV( $arg ) ) == gv_stashpv(\"Geo::Calc::XS::\", GV_ADD) || sv_derived_from( $arg, \"Geo::Calc::XS\" ) ) ) )
           croak (\"object is not of type Geo::Calc::XS\");
         $var = (GCX *)SvPVX( SvRV( $arg ) );
 
@@ -18,7 +18,7 @@ T_LONG_DOUBLE
 
 T_POINT
         POINT point;
-        if( SvROK( $arg ) && SvOBJECT( SvRV( $arg ) ) && ( SvSTASH( SvRV( $arg ) ) == GEOCALC_STASH || sv_derived_from( $arg, \"Geo::Calc::XS\" ) ) ) {
+        if( SvROK( $arg ) && SvOBJECT( SvRV( $arg ) ) && ( SvSTASH( SvRV( $arg ) ) == gv_stashpv(\"Geo::Calc::XS::\", GV_ADD) || sv_derived_from( $arg, \"Geo::Calc::XS\" ) ) ) {
             GCX * self2 = (GCX *)SvPVX( SvRV( $arg ) );
             point.lat = self2->latitude;
             point.lon = self2->longitude;
