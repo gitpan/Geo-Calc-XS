@@ -1,5 +1,10 @@
 Revision history for Geo::Calc::XS
 
+0.30 Sat Oct 18 04:51:18 EST 2014
+    - Tests are skipping now if the modules are not found
+    - Removed TEST_REQUIRES
+    - Added threads test
+
 0.29 Thu Oct  16 00:00:00 EST 2014
     - Thread-safety implemented
     - Fix bug #97052: Geo::Calc::XS midpoint_to returns different results in

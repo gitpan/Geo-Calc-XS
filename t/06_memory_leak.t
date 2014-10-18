@@ -3,8 +3,17 @@ use warnings;
 use utf8;
 
 use Test::More;
-use Test::LeakTrace;
-use Geo::Calc::XS;
+BEGIN {
+    my $needed_modules = [ 'Test::LeakTrace' ];
+    foreach my $module ( @{ $needed_modules } ) {
+        eval "use $module";
+        if ($@) {
+            plan skip_all => join( ', ', @{ $needed_modules } ). " is needed";
+        }
+    }
+}
+
+use_ok 'Geo::Calc::XS';
 
 no_leaks_ok {
     my $gc = Geo::Calc::XS->new(lat => 2, lon => 4.5);

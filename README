@@ -8,9 +8,9 @@ Build instructions:
 
 1. Install the Geo-Calc-XS module if not installed already
 
-2. Extract the Geo-Calc-XS-0.29.tar.gz into directory Geo-Calc-XS-0.29
+2. Extract the Geo-Calc-XS-0.30.tar.gz into directory Geo-Calc-XS-0.30
 
-3. cd Geo-Calc-XS-0.29
+3. cd Geo-Calc-XS-0.30
 
 4. perl Makefile.PL
 

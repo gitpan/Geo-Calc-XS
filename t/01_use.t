@@ -1,8 +1,3 @@
-#!/usr/bin/perl
-#
-# Test for Geo::Calc::XS
-#
-
 use strict;
 use warnings;
 use utf8;

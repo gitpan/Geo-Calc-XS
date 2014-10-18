@@ -3,10 +3,17 @@ use warnings FATAL => 'all';
 use utf8;
 
 use Test::More;
-use Test::Exception;
-use Data::Dumper;
+BEGIN {
+    my $needed_modules = [ 'Test::Exception', 'Data::Dumper' ];
+    foreach my $module ( @{ $needed_modules } ) {
+        eval "use $module";
+        if ($@) {
+            plan skip_all => join( ', ', @{ $needed_modules } ). " are needed";
+        }
+    }
+}
 
-use Geo::Calc::XS;
+use_ok 'Geo::Calc::XS';
 
 my $gc = Geo::Calc::XS->new(lat => 3.2, lon => 54);
 

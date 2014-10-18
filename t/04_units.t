@@ -1,11 +1,17 @@
-#!/usr/bin/perl -T
-
 use strict;
 use warnings;
+use utf8;
 
 use Test::More;
-use Scalar::Util qw(looks_like_number);
-use Math::Units;
+BEGIN {
+    my $needed_modules = [ 'Scalar::Util', 'Math::Units' ];
+    foreach my $module ( @{ $needed_modules } ) {
+        eval "use $module";
+        if ($@) {
+            plan skip_all => join( ', ', @{ $needed_modules } ). " are needed";
+        }
+    }
+}
 
 use_ok 'Geo::Calc::XS';
 
@@ -87,7 +93,7 @@ sub round {
     if ( ref($input) eq 'HASH' ) {
         my $result = {};
         for my $key (keys %$input) {
-            if (looks_like_number( $input->{$key} )) {
+            if (Scalar::Util::looks_like_number( $input->{$key} )) {
                 $result->{$key} = sprintf("%.2f", $input->{$key});
             }
             else {

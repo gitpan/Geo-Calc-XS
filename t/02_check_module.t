@@ -1,17 +1,17 @@
-#!/usr/bin/perl
-#
-# Test for Geo::Calc::XS
-#
-
 use strict;
 use warnings;
 use utf8;
 
 use Test::More;
-use Test::Deep;
-use Time::HiRes qw( gettimeofday tv_interval );
-use List::Util qw(shuffle);
-use Config;
+BEGIN {
+    my $needed_modules = [ 'Test::Deep', 'List::Util', 'Config' ];
+    foreach my $module ( @{ $needed_modules } ) {
+        eval "use $module";
+        if ($@) {
+            plan skip_all => join( ', ', @{ $needed_modules } ). " are needed";
+        }
+    }
+}
 
 use_ok( 'Geo::Calc::XS' );
 
@@ -110,7 +110,7 @@ SKIP:
     my $ResultsQueue = Thread::Queue->new();
     my @threads;
 
-    for my $ra_test (shuffle @tests) {
+    for my $ra_test (List::Util::shuffle @tests) {
         push @threads, threads->create(sub {
             $ResultsQueue->enqueue([$ra_test->[0]->(), $ra_test->[1], $ra_test->[2]]);
         });

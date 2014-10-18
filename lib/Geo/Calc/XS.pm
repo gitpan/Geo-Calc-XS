@@ -14,7 +14,7 @@ our @ISA = qw( Exporter DynaLoader );
 our %EXPORT_TAGS = ( 'all' => [ 'new', 'distance_to' ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = ();
-our $VERSION = '0.29';
+our $VERSION = '0.30';
 
 XSLoader::load 'Geo::Calc::XS', $VERSION;
 

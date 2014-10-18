@@ -1,12 +1,17 @@
-#!/usr/bin/perl
-
 use strict;
 use warnings;
+use utf8;
 
 use Test::More;
-use Test::Warn;
-
-require Test::NoWarnings;
+BEGIN {
+    my $needed_modules = [ 'Test::Warn', 'Test::NoWarnings' ];
+    foreach my $module ( @{ $needed_modules } ) {
+        eval "use $module";
+        if ($@) {
+            plan skip_all => join( ', ', @{ $needed_modules } ). " are needed";
+        }
+    }
+}
 
 use_ok 'Geo::Calc::XS';
 
