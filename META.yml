@@ -16,4 +16,4 @@ no_index:
     - inc
 resources:
   repository: https://github.com/Flimm/perl5-geo-calc-xs.git
-version: 0.31
+version: 0.32

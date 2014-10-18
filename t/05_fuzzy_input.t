@@ -37,7 +37,7 @@ my @methods = (qw(
     rhumb_distance_to
 ));
 
-for my $method (@methods) {
+foreach my $method (@methods) {
     my @random_args;
     for my $i (0 .. (rand(10) + 1)) {
         push @random_args, "zzz" . random_string();
@@ -47,7 +47,7 @@ for my $method (@methods) {
         or diag(Dumper(\@random_args));
 }
 
-for my $method (@methods) {
+foreach my $method (@methods) {
     my $rh_random_arg = {};
     for my $i (0 .. (rand(5) * 2 + 1)) {
         $rh_random_arg->{"zzz" . random_string()} = "zzz" . random_string();
@@ -57,22 +57,26 @@ for my $method (@methods) {
 }
 
 
-for my $ra_new_args (
-    [],
-    [lon => 2.3],
-    [lat => 4, lon => 24, 'uneven'],
-    [lat => 4, lon => 5, unexpected => 4],
-    [lat => 2, lat => 4])
-{
+foreach my $ra_new_args (
+        [],
+        [ lon => 2.3 ],
+        [ lat => 4, lon => 24, 'uneven' ],
+        [ lat => 4, lon => 5, unexpected => 4 ],
+        [ lat => 2, lat => 4 ]
+    ) {
     local $Data::Dumper::Terse = 1;
-    my $dumped = join(", ", map { Dumper($_) =~ s/\n\z//r } @$ra_new_args);
-    dies_ok { Geo::Calc::XS->new(@$ra_new_args) } "Geo::Calc::XS->new($dumped) died but did not segfault";
+    local $Data::Dumper::Useqq = 1;
+    local $Data::Dumper::Indent = 0;
+    my $dumped = join(", ", map { Dumper( $_ ) } @$ra_new_args);
+    dies_ok { Geo::Calc::XS->new( @{ $ra_new_args } ) } "Geo::Calc::XS->new( $dumped ) died but did not segfault";
 }
 
 done_testing();
 
+
+
 sub random_string {
-    my $length = rand(10);
+    my $length = rand(10)+6;
     my $str = "";
     for my $i (1..$length) {
         $str .= chr(ord('a') + rand(26));
