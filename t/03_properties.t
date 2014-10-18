@@ -4,7 +4,7 @@ use utf8;
 
 use Test::More;
 BEGIN {
-    my $needed_modules = [ 'Test::Warn', 'Test::NoWarnings' ];
+    my $needed_modules = [ 'Test::Warn', 'Test::FailWarnings' ];
     foreach my $module ( @{ $needed_modules } ) {
         eval "use $module";
         if ($@) {
@@ -57,5 +57,4 @@ warning_is
 
 is($gc->get_units, "m", "default to meters");
 
-Test::NoWarnings::had_no_warnings();
 done_testing();

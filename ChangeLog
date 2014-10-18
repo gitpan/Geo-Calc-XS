@@ -1,5 +1,8 @@
 Revision history for Geo::Calc::XS
 
+0.31 Sat Oct 18 21:55:31 EEST 2014
+    - switched from Test::NoWarnings to Test::FailWarnings
+
 0.30 Sat Oct 18 04:51:18 EST 2014
     - Tests are skipping now if the modules are not found
     - Removed TEST_REQUIRES

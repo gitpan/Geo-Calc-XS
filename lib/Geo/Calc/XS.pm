@@ -14,11 +14,11 @@ our @ISA = qw( Exporter DynaLoader );
 our %EXPORT_TAGS = ( 'all' => [ 'new', 'distance_to' ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = ();
-our $VERSION = '0.30';
+our $VERSION = '0.31';
 
 XSLoader::load 'Geo::Calc::XS', $VERSION;
 
-# Copyright 2011-2012 by Sorin Alexandru Pop.
+# Copyright 2011-2014 by Sorin Alexandru Pop.
 # For other contributors see ChangeLog.
 # See the manual pages for details on the licensing terms.
 
